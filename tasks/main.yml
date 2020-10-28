@@ -1,0 +1,12 @@
+---
+
+- include: install.yml
+  when: pgbouncer_install | bool
+
+- include: config.yml
+
+- name: enabled and start pgbouncer
+  systemd:
+    name: pgbouncer
+    enabled: yes
+    state: started

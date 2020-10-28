@@ -1,0 +1,25 @@
+---
+
+pgbouncer_install: true
+pgbouncer_dbname: ''
+pgbouncer_host: ''
+pgbouncer_host_port: ''
+pgbouncer_host_user: ''
+pgbouncer_host_password: ''
+pgbouncer_userlist: []
+pgbouncer_databases: '* = host=127.0.0.1 port=5432'
+pgbouncer_listen_addr: 127.0.0.1
+pgbouncer_listen_port: 6432
+pgbouncer_auth_type: trust
+auth_file: /etc/pgbouncer/userlist.txt
+pgbouncer_admin_users: postgres
+pgbouncer_pool_mode: transaction
+pgbouncer_server_reset_query: DEALLOCATE ALL
+pgbouncer_max_client_conn: 1000
+pgbouncer_default_pool_size: 100
+pgbouncer_server_lifetime: 1200
+pgbouncer_server_idle_timeout: 300
+pgbouncer_pkt_buf: 8192
+pgbouncer_dns_max_ttl: 1
+
+nolog: true

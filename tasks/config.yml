@@ -1,0 +1,23 @@
+---
+
+- name: config pgbouncer
+  template:
+    dest: /etc/pgbouncer/pgbouncer.ini
+    src: pgbouncer.ini.j2
+  no_log: '{{ nolog }}'
+  register: config_pgbouncer
+
+- name: config users
+  template:
+    dest: /etc/pgbouncer/userlist.txt
+    src: userlist.txt.j2
+  no_log: '{{ nolog }}'
+  register: config_users
+
+- name: restart pgbouncer
+  systemd:
+    name: pgbouncer
+    enabled: yes
+    state: restarted
+  when: config_pgbouncer is changed or config_users is changed
+
